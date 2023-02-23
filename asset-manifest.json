@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/lora-cms/static/css/main.50968eaa.css",
-    "main.js": "/lora-cms/static/js/main.dc32697b.js",
+    "main.js": "/lora-cms/static/js/main.c040c088.js",
     "static/js/787.474d80c8.chunk.js": "/lora-cms/static/js/787.474d80c8.chunk.js",
     "static/media/logo.svg": "/lora-cms/static/media/logo.db36153e906043854e743ee53cf5fff2.svg",
     "index.html": "/lora-cms/index.html",
     "main.50968eaa.css.map": "/lora-cms/static/css/main.50968eaa.css.map",
-    "main.dc32697b.js.map": "/lora-cms/static/js/main.dc32697b.js.map",
+    "main.c040c088.js.map": "/lora-cms/static/js/main.c040c088.js.map",
     "787.474d80c8.chunk.js.map": "/lora-cms/static/js/787.474d80c8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.50968eaa.css",
-    "static/js/main.dc32697b.js"
+    "static/js/main.c040c088.js"
   ]
 }
