@@ -16,13 +16,19 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import PhoneMissedIcon from "@mui/icons-material/PhoneMissed";
 import { Outlet } from "react-router-dom";
+import { CreditCard, Lock, Person, Tune } from "@mui/icons-material";
+import Timeline from "@mui/lab/Timeline";
+import TimelineItem, { timelineItemClasses } from "@mui/lab/TimelineItem";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineContent from "@mui/lab/TimelineContent";
+import TimelineDot from "@mui/lab/TimelineDot";
 
 function LinkTab(props) {
   return (
     <Tab
-      icon={<PhoneMissedIcon />}
+      icon={props.icon}
       iconPosition="start"
-      sx={{ ml: 0, mr: 2, minHeight: false }}
+      sx={{ ml: 0, mr: 2, minHeight: false, fontSize: 12, fontWeight: 600 }}
       component="a"
       onClick={(event) => {
         event.preventDefault();
@@ -40,13 +46,29 @@ function Control() {
   };
 
   return (
-    <Container
-      sx={{ maxWidth: false, width: 936, margin: "auto", overflow: "hidden" }}
-    >
+    <Container sx={{ width: 936, margin: "auto", overflow: "hidden" }}>
       <Typography sx={{ mb: 2 }} color="text.dark" variant="h6">
         Settings
       </Typography>
-
+      <Timeline
+        sx={{
+          [`& .${timelineItemClasses.root}:before`]: {
+            flex: 0,
+            padding: 0,
+          },
+          m: 0,
+          p: 0,
+        }}
+      >
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot color="success" />
+          </TimelineSeparator>
+          <TimelineContent sx={{ fontSize: 12, pt: 1.1 }}>
+            Online
+          </TimelineContent>
+        </TimelineItem>
+      </Timeline>
       <Box sx={{ width: "100%", m: 0, p: 0, mb: 2 }}>
         <Tabs
           sx={{ ml: 0, minHeight: "36px" }}
@@ -57,9 +79,14 @@ function Control() {
             sx: { bgcolor: "#2196f3", borderRadius: 0 },
           }}
         >
-          <LinkTab label="Page One" href="/dashboard/control/content" />
-          <LinkTab label="Page Two" />
-          <LinkTab label="Page Three" />
+          <LinkTab
+            icon={<Person />}
+            label="STATUS"
+            href="/dashboard/control/content"
+          />
+          <LinkTab icon={<Tune />} label="CONTROL" />
+          <LinkTab icon={<Lock />} label="SECURITY" />
+          <LinkTab icon={<CreditCard />} label="ABOUT" />
         </Tabs>
       </Box>
       <Outlet />

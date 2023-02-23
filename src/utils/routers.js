@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Content from "../components/contents/Content";
 import Control from "../components/contents/Control";
+import Status from "../components/contents/controls/Status";
 import Paperbase from "../components/Paperbase";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
         element: <Control />,
         children: [
           {
-            path: "content",
-            element: <Content />,
+            path: "status",
+            element: <Status />,
           },
         ],
       },
