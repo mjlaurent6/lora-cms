@@ -20,18 +20,24 @@ const router = createBrowserRouter([
     element: <Paperbase />,
     children: [
       {
-        path: "content",
-        element: <Content />,
-      },
-      {
-        path: "control",
+        path: "gateway",
         element: <Control />,
         children: [
           {
-            path: "status",
+            path: "management",
             element: <Status />,
           },
         ],
+      },
+    ],
+  },
+  {
+    path: "/gateway",
+    element: <Paperbase />,
+    children: [
+      {
+        path: "management",
+        element: <Control />,
       },
     ],
   },

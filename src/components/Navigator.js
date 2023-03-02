@@ -17,25 +17,13 @@ import SettingsInputComponentIcon from "@mui/icons-material/SettingsInputCompone
 import TimerIcon from "@mui/icons-material/Timer";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PhonelinkSetupIcon from "@mui/icons-material/PhonelinkSetup";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
-    id: "Build",
+    id: "Gateway",
     children: [
-      { id: "Authentication", icon: <PeopleIcon /> },
-      { id: "Database", icon: <DnsRoundedIcon /> },
-      { id: "Storage", icon: <PermMediaOutlinedIcon /> },
-      { id: "Hosting", icon: <PublicIcon /> },
-      { id: "Functions", icon: <SettingsEthernetIcon /> },
-      { id: "Machine learning", icon: <SettingsInputComponentIcon /> },
-    ],
-  },
-  {
-    id: "Quality",
-    children: [
-      { id: "Analytics", icon: <SettingsIcon /> },
-      { id: "Performance", icon: <TimerIcon /> },
-      { id: "Test Lab", icon: <PhonelinkSetupIcon /> },
+      { id: "Management", icon: <DnsRoundedIcon />, link: "management" },
     ],
   },
 ];
@@ -81,13 +69,15 @@ export default function Navigator(props) {
             <ListItem sx={{ py: 2, px: 3 }}>
               <ListItemText sx={{ color: "#fff" }}>{id}</ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
-              <ListItem disablePadding key={childId}>
-                <ListItemButton selected={active} sx={item}>
-                  <ListItemIcon>{icon}</ListItemIcon>
-                  <ListItemText>{childId}</ListItemText>
-                </ListItemButton>
-              </ListItem>
+            {children.map(({ id: childId, icon, link }) => (
+              <Link to={`/gateway/${link}`} style={{ textDecoration: "none" }}>
+                <ListItem disablePadding key={childId}>
+                  <ListItemButton sx={item}>
+                    <ListItemIcon>{icon}</ListItemIcon>
+                    <ListItemText>{childId}</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             ))}
 
             <Divider sx={{ mt: 2 }} />
